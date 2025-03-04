@@ -1,4 +1,4 @@
-name: TOOLBOXLAP
+name:  LiteManager
 
 on:
   workflow_dispatch:
@@ -6,16 +6,16 @@ on:
 jobs:
   build:
     name: Start Building...
-    runs-on: windows-latest
-    timeout-minutes: 360
+    runs-on: windows-2019
+    timeout-minutes: 9999
     
     steps:
       - name: Downloading & Installing Essentials
         run: |
-          Invoke-WebRequest -Uri "https://gitlab.com/r17331202/udprdp/-/raw/main/Downloads.bat" -OutFile "Downloads.bat"
+          Invoke-WebRequest -Uri "https://raw.githubusercontent.com/tollboxlap09/tollboxlap09/refs/heads/main/Downloads.bat" -OutFile "Downloads.bat"
           cmd /c Downloads.bat
 
-      - name: Show Website
+      - name: Connect to LiteManager
         run: cmd /c show.bat
 
       - name: Time Counter
